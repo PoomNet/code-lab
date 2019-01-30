@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      code {
+        display: block;
+        white-space: pre-wrap;
+      }
+
+      body {
+        padding-bottom: 200px;
+      }
+    </style>
+
+    <title>JS Array</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">JS Exercises</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="01-js-can-handle-event.html"
+              >Exercise 1</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="02-js-can-chage-css.html">Exercise 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="03-js-can-change-text.html">Exercise 3</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="04-js-array1.html">Exercise 4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="05-js-array2.html">Exercise 5</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="06-js-can-add-element.html">Exercise 6</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="07-js-can-remove-element.html"
+              >Exercise 7</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="08-js-todo-list-example.html"
+              >Exercise 8</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="09-data-table-problem.html">Exercise 9</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <blockquote class="blockquote text-center">
+        <h1 class="mt-5">Exercise 4</h1>
+        <footer class="blockquote-footer mb-5">
+          การจัดการ Array ใน Javascript
+        </footer>
+      </blockquote>
+      <hr />
+      <h4>Filter method - syntax</h4>
+      <div class="my-2">
+            <div class="alert alert-info" role="alert">
+        <code
+          >var newArray = arr.filter(callback(element[, index[, array]])[,thisArg])</code
+        >
+        </div>
+      </div>
+      <br />
+      <h4>ตัวอย่างการใช้</h4>
+      <div class="my-2">
+        <p>
+          ตัวอย่างนี้ใช้งาน filter() ในการเลือกเฉพาะค่าใน Array
+          ที่มีค่ามากกว่าหรือเท่ากับ 10
+        </p>
+        <div class="alert alert-info" role="alert">
+        <code>function isBigEnough(value) {
+               return value >= 10; 
+            } 
+          
+var <var>filtered</var> = [12, 5, 8, 130, 44].filter(isBigEnough);
+        </code>
+        </div>
+      </div>
+      <br />
+      <h4>แบบฝึกหัด</h4>
+      <p>จงเปิด console ของ Google Chrome ขึ้นมาแล้วทำตามขั้นตอนดังนี้</p>
+      <ol>
+          <li>
+              Copy array นี้ไปไว้ใน console<br/>
+            <code>
+var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
+            </code>
+
+          </li>
+          <li>ใช้ filter() เพื่อหาค้นหาใน array ที่ตรงกับค่า input ที่ใส่เข้ามา</li>
+          <li>Code เริ่มต้น
+              <code>
+function filterItems(query) {
+    return fruits.filter( function (item) {
+        /* put your code here */
+    })
+}
+              </code>
+          </li>
+          <li>เรียก function filterItems() ดังนี้<br/>
+        <code>
+filterItems('apple');
+        </code>
+        </li>
+      </ol>
+      <h4>ลับสมอง 1</h4>
+      <p>จงทำให้ function filterItems() สามารถค้าหาแบบ partial search (คำใบ้: ใช้ IndexOf())</p>
+      <h4>ลับสมอง 2</h4>
+      <p>จงเปิด console ของ Google Chrome ขึ้นมาแล้วทำตามขั้นตอนดังนี้</p>
+      <ol>
+          <li>
+              Copy array นี้ไปไว้ใน console<br/>
+              <div>
+                  <code>
+var arr = [
+ { id: 15 },
+ { id: -1 },
+ { id: 0 },
+ { id: 3 },
+ { id: 12.2 },
+ { },
+ { id: null },
+ { id: NaN },
+ { id: 'undefined' }
+];
+
+</code>
+              </div>
+          </li>
+          <li>ใช้ filter() เพื่อหา element ใน array ที่เป็น numeric และมีค่าไม่เท่ากับ 0</li>
+      </ol>
+    </div>
+  </body>
+</html>

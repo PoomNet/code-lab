@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Text/HTML</title>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">JS Exercises</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="01-js-can-handle-event.html">Exercise 1</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="02-js-can-chage-css.html">Exercise 2</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="03-js-can-change-text.html">Exercise 3</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="04-js-array1.html">Exercise 4</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="05-js-array2.html">Exercise 5</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="06-js-can-add-element.html">Exercise 6</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="07-js-can-remove-element.html">Exercise 7</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="08-js-todo-list-example.html">Exercise 8</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="09-data-table-problem.html">Exercise 9</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    <div class="container">
+      <blockquote class="blockquote text-center" >
+          <h1 class="mt-5">Exercise 3</h1>
+        <footer class="blockquote-footer mb-5">Javascript สามารถแก้ไขข้อความใน tag html ได้</footer>
+      </blockquote>
+
+      <hr />
+      <p id="hello-world">&lt;p&gt; ตัวนี้มี id="hello-world" <small style="font-size: 12px;">(ลอง inspect ดูสิ)</small></p>
+      <hr />
+
+      <h4>ลองทำ</h4>
+      <ul>
+        <li>เปิด Console</li>
+        <li>พิมพ์ <code title="ถ้าพิมพ์จะจำได้มากกว่านะ">document.querySelector('#hello-world')</code></li>
+        <li>
+          พิมพ์
+          <code title="ถ้าพิมพ์จะจำได้มากกว่านะ">
+            document.querySelector('#hello-world').innerHTML = 'แก้ไข innerHTML';
+          </code>
+          ลงใน Console
+        </li>
+        <li>
+          พิมพ์
+          <code title="ถ้าพิมพ์จะจำได้มากกว่านะ">
+            document.querySelector('#hello-world').textContent = 'แก้ไข textContent';
+          </code>
+          ลงใน Console
+        </li>
+      </ul>
+      <hr />
+
+      <h4>แบบฝึกหัด</h4>
+      <ol>
+        <li><span id="change-me">ลองเปลี่ยนข้อความนี้เป็น link ไปที่ <code>https://google.com</code></span></li>
+        <li><code>textContent</code> กับ <code>innerHTML</code> ต่างกันยังไง?</li>
+      </ol>
+      <hr>
+
+      <h4>ลับสมอง</h4>
+      <ol>
+        <li>ลองเปลี่ยนข้อความนี้เป็นปุ่ม ถ้ากดปุ่มแล้วจะเปลี่ยนสี background ของหน้านี้เป็นสีดำ</li>
+      </ol>
+      <hr>
+    </div>
+  </body>
+</html>

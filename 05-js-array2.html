@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      code {
+        display: block;
+        white-space: pre-wrap;
+      }
+
+      body {
+        padding-bottom: 200px;
+      }
+    </style>
+
+    <title>JS Array</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">JS Exercises</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="01-js-can-handle-event.html"
+              >Exercise 1</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="02-js-can-chage-css.html">Exercise 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="03-js-can-change-text.html">Exercise 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="04-js-array1.html">Exercise 4</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="05-js-array2.html">Exercise 5</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="06-js-can-add-element.html">Exercise 6</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="07-js-can-remove-element.html"
+              >Exercise 7</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="08-js-todo-list-example.html"
+              >Exercise 8</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="09-data-table-problem.html">Exercise 9</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <blockquote class="blockquote text-center">
+        <h1 class="mt-5">Exercise 5</h1>
+        <footer class="blockquote-footer mb-5">
+          การจัดการ Array ใน Javascript
+        </footer>
+      </blockquote>
+      <hr />
+      <h4>Map method - syntax</h4>
+      <div class="my-2">
+            <div class="alert alert-info" role="alert">
+        <code
+          >var new_array = arr.map(function callback(currentValue[, index[, array]]) {
+            // Return element for new_array
+        }[, thisArg])</code
+        >
+        </div>
+      </div>
+      <br />
+      <h4>ตัวอย่างการใช้</h4>
+      <div class="my-2">
+        <p>
+          ตัวอย่างนี้ใช้งาน map() โดยการคูณ 2 ให้กับค่าทุกค่าใน array
+        </p>
+        <div class="alert alert-info" role="alert">
+        <code>
+var <var>array1</var> = [1, 4, 9, 16];
+
+// pass a function to map
+const <var>map1</var> = array1.map(x => x * 2);
+
+// expected output: Array [2, 8, 18, 32]
+        </code>
+        </div>
+      </div>
+      <br />
+      <h4>แบบฝึกหัด</h4>
+      <p>จงเปิด console ของ Google Chrome ขึ้นมาแล้วทำตามขั้นตอนดังนี้</p>
+      <ol>
+          <li>
+              Copy array นี้ไปไว้ใน console<br/>
+            <code>
+var fruits = ['apple', 'banana', 'grapes','8', 'mango', 'orange', '1', '5'];
+            </code>
+
+          </li>
+          <li>ใช้ map() เพื่อสร้าง array ที่มี element ที่เป็นตัวหนังสือเป็นตัวใหญ่ (capital letters) และ element ที่เป็นตัวเลขมีค่าคูณ 3</li>
+      </ol>
+      <h4>ลับสมอง</h4>
+      <p>ใช้ map() เพื่อสร้าง array ที่มี element ที่เป็นตัวหนังสือเป็นตัวใหญ่ (capital letters) และ ลบ element ที่เป็นตัวเลขออกจาก array</p>
+    </div>
+  </body>
+</html>
