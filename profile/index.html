@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <header>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
 </header>
 
 <body>
@@ -22,10 +27,10 @@
                         My profile
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">My information</a>
-                        <a class="dropdown-item" href="#">My education</a>
-                        <a class="dropdown-item" href="#">My favorite foods</a>
-                        <a class="dropdown-item" href="#">My favorite movies</a>
+                        <a class="dropdown-item" href="#info">My information</a>
+                        <a class="dropdown-item" href="#edu">My education</a>
+                        <a class="dropdown-item" href="#food">My favorite foods</a>
+                        <a class="dropdown-item" href="#movie">My favorite movies</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -36,7 +41,7 @@
     </nav>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <nav class="nav" style="font-size:40px;">Profile</nav>
+            <nav class="nav" style="font-size:40px;" id="info">Profile</nav>
             <br>
             <table class="table table-hover table-dark" style="font-size:40px;">
                 <tr>
@@ -53,7 +58,7 @@
                     <td style="padding:40px;" colspan="4"></td>
                 </tr>
                 <tr>
-                    <td colspan="4">Education</td>
+                    <td colspan="4" id="edu">Education</td>
                 </tr>
                 <tr>
                     <td colspan="2">Middle School</td>
@@ -67,7 +72,7 @@
                     <td style="padding:40px;" colspan="4"></td>
                 </tr>
                 <tr>
-                    <td colspan="4">
+                    <td colspan="4" id="food">
                         My Favorite Foods
                     </td>
                 </tr>
@@ -103,7 +108,7 @@
                     <td style="padding:40px;" colspan="4"></td>
                 </tr>
                 <tr>
-                    <td colspan="4">
+                    <td colspan="4" id="movie">
                         My Favorite Movies
                     </td>
                 </tr>
