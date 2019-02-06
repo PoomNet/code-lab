@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app1">
+      <div class="container">
+        <br />
+        <h1>My Blog</h1>
+        <br />
+        <div class="row">
+          <div class="col">
+            <div class="card" id="">
+              <img src="https://www.valuecoders.com/blog/wp-content/uploads/2017/11/featurednew.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{blog.title}}
+                  <span class="badge badge-success ml-5" v-if="blog.likes < 30">Likes: {{blog.likes}} </span>
+                  <span v-else><img src="1.png"></span>
+                </h5>
+                <p class="card-text">
+                  {{blog.content}}<br />
+                  <small class="text-muted">Create By: {{blog.createBy}} </small>
+                  <small class="text-muted ml-5">Create Date: {{blog.createDate}} </small>
+                </p>
+                <a v-bind:href="blog.fb" class="btn btn-primary">Go to my Facebook page</a>
+                <a href="#" class="btn btn-success" v-on:click="blog.likes+=1">I like this!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div v-for="texts in blog.comments" class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <p
+                  class="card-text"
+                  v-on:mouseover="setTextColor"
+                  v-on:mouseout="reset"
+                >
+                  {{texts.text}}<br />
+                  <small class="text-muted">Create By:{{texts.createBy}} </small>
+                  <small class="text-muted ml-5">Create Date: </small>
+                </p>
+                <br>
+                <button class="btn btn-danger" v-on:click="deleteComment(texts)">delete</button>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <p
+                  class="card-text"
+                  v-on:mouseover="setTextColor"
+                  v-on:mouseout="reset"
+                >
+                {{blog.comments[1].text}}<br />
+                  <small class="text-muted">Create By: {{blog.comments[1].createBy}} </small>
+                  <small class="text-muted ml-5">Create Date: </small>
+                </p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app1",
+        data: {
+          blog: {
+            id: 23,
+            title: "Hello World!",
+            content: "I love Vue.js. It is so cool and easy!",
+            createBy: "Bundit",
+            createDate: new Date().toLocaleString(),
+            image: "",
+            fb: "https://www.facebook.com",
+            likes: 20,
+            comments: [
+              { text: "Yes I agree!", likes: 0, createBy: "Jack" },
+              { text: "Could not agree more!", likes: 0, createBy: "John" }
+            ]
+          }
+        },
+        methods: {
+          setTextColor(e) {
+            e.target.style.color = 'red';
+          },
+          reset(e) {
+            e.target.style.color = 'black';
+          },
+          deleteComment(comment){
+            let index = this.blog.comments.indexOf(comment);
+            this.blog.comments.splice(index,1);
+          }
+        }
+      });
+      // v-if -> if likes reach 100 hide the "I like this!" button and show a five-star rating image
+      // v-show -> if comment has less than 10 like -> hide it
+      // On mouse over comment cards -> change text color to red
+    </script>
+  </body>
+</html>
