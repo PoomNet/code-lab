@@ -38,7 +38,7 @@
                   <small class="text-muted ml-5">Create Date: {{blog.createDate}} </small>
                 </p>
                 <a v-bind:href="blog.fb" class="btn btn-primary">Go to my Facebook page</a>
-                <a href="#" class="btn btn-success" v-on:click="blog.likes+=1">I like this!</a>
+                <a href="#" class="btn btn-success" v-on:click.prevent="blog.likes+=1">I like this!</a>
               </div>
             </div>
           </div>
