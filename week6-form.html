@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    <div id="app1" style="margin-left: 100px;">
+        <h3>Example 1: v-model</h3>
+        <p>
+            <input v-model="message" placeholder="edit me">
+            <p>Message is: {{ message }}</p>
+        </p>
+        <br /><br />
+        <h3>Example 2: checkbox</h3>
+        <p>
+            <div id='example-2'>
+                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                <label for="jack">Jack</label>
+                <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                <label for="john">John</label>
+                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                <label for="mike">Mike</label>
+                <br>
+                <span>Checked names: {{ checkedNames }}</span>
+            </div>
+        </p>
+        <br /><br />
+        <h3>Example 3: radio</h3>
+        <p>
+            <div id='example-3'>
+                <input type="radio" id="one" value="One" v-model="picked">
+                <label for="one">One</label>
+                <br>
+                <input type="radio" id="two" value="Two" v-model="picked">
+                <label for="two">Two</label>
+                <br>
+                <span>Picked: {{ picked }}</span>
+            </div>
+        </p>
+        <br /><br />
+        <h3>Example 4: selects</h3>
+        <p>
+            <div id='example-3'>
+                    <select v-model="selected">
+                            <option disabled value="">Please select one</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                    </select><br/>
+                    <span>Selected: {{ selected }}</span>
+            </div>
+        </p>
+        <br /><br />
+        <h3>Example 5: multiple select</h3>
+        <p>
+            <div id='example-3'>
+                <select v-model="selected_list" multiple>
+                        <!-- <option disabled value="">Please select one</option> -->
+                        <option v-for="a in items">{{a}}</option>
+                        <!-- <option>B</option>
+                        <option>C</option> -->
+                </select><br/>
+                <span>Selected: {{ selected_list }}</span>
+        </div>
+        </p>
+        <br /><br />
+        <h3>Example 6: Check box</h3>
+        <p>
+            <div id='example-3'>
+                <template v-for="item in items">
+                <input type="checkbox" :id="item" :value="item" v-model="pickedlist">
+                <label :for="item">{{item}}</label>
+            </template>
+                <span>Selected: {{ pickedlist }}</span>
+        </div>
+        </p>
+        <h3>Example 7: reverse text</h3>
+        <p>
+            <input type="text" v-model="message">
+            <button v-on:click="message=message.split('').reverse().join('')">Reverse Text</button>
+            <p>{{message}}</p>
+        </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app1",
+        data: {
+            pickedlist: [],
+            message: 'Hello Vue!',
+            checkedNames: [],
+            picked: '',
+            selected: '',
+            selected_list: '',
+            items: ['apple', 'banana', 'orange', 'coconut', 'mango'] // Try to create checkbox of this array
+        },
+      })
+    </script>
+  </body>
+</html>
