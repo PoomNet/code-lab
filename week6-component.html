@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    <div id="app1" style="margin-left: 100px;">
+      <h3>Example 1: click counter</h3>
+      <p>
+        <button-counter></button-counter>
+      </p>
+      <br /><br />
+      <h3>Example 2: click counters</h3>
+      <p>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+      </p>
+      <br /><br />
+      <h3>Example 3: passing props from PARENT to CHILD component</h3>
+      <p>
+        <blog-post
+          title="My journey with Vue"
+          content="CONTENT of My journey with Vue"
+        ></blog-post>
+        <blog-post
+          title="Blogging with Vue"
+          content="CONTENT of Blogging with Vue"
+        ></blog-post>
+        <blog-post title="Why Vue is so fun" :content="message"></blog-post>
+      </p>
+      <br /><br />
+      <h3>Example 4: enlarge text</h3>
+      <p>
+        <p :style="{ fontSize: myFontSize + 'em' }">My text</p>
+        <button-enlarge @enlarge-text="myFontSize += 0.1"></button-enlarge>
+        <button-enlarge2 @enlarge-text="myFontSize += $event"></button-enlarge2>
+        <button-enlarge3 @enlarge-text="enlarge($event)"></button-enlarge2>
+      </p>
+      <br /><br />
+      <h3>Example 5: v-model (custom input)</h3>
+      <p>
+          <custom-input v-model="searchText" @reverse-text="reversedText = $event"></custom-input><br/>
+          search text: {{searchText}}<br/>
+          reversed search text: {{reversedText}}
+      </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script>
+      Vue.component("button-counter", {
+        data: function() {
+          return {
+            count: 0
+          };
+        },
+        template:
+          '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+      });
+
+      Vue.component("button-enlarge", {
+        template:
+          `<button v-on:click="$emit('enlarge-text')">Click to zoom 1x</button>`
+      });
+
+      Vue.component("button-enlarge2", {
+        template:
+          `<button v-on:click="$emit('enlarge-text', 0.2)">Click to zoom 2x</button>`
+      });
+
+      Vue.component("button-enlarge3", {
+        data: function(){
+          return {
+            font:1
+          }
+        },
+        methods:{
+          emitEvent(){
+            this.$emit('enlarge-text', this.font)
+          }
+        },
+        template:
+          `<div>
+            <input type="text" v-model="font">&nbsp;
+            <button v-on:click="emitEvent">click to zoom {{font}}x</button>
+            
+            </div>`
+      });
+
+      Vue.component('custom-input', {
+        props: ['value'],
+        methods: {
+          emitText: function (event) {
+            this.$emit('input', event.target.value)
+          },
+          reverseText: function (){
+            this.$emit('reverse-text', this.value.split('').reverse().join(''))
+          }
+        },
+        template: `
+          <input
+            v-bind:value="value"
+            v-on:input="emitText"
+            v-on:change="reverseText"
+          >
+        `
+      });
+
+      // Component template should contain exactly one root element.
+      Vue.component("blog-post", {
+        props: ["title", "content"],
+        template: `<div><h4>{{ title }}</h4>
+        <p>{{ content }}</p></div>`
+      });
+
+      var vm = new Vue({
+        el: "#app1",
+        data: {
+          message: "Hello Vue!",
+          posts: [
+            { id: 1, title: "My journey with Vue" },
+            { id: 2, title: "Blogging with Vue" },
+            { id: 3, title: "Why Vue is so fun" }
+          ],
+          myFontSize: 1,
+          searchText: '',
+          reversedText: ''
+        },
+        methods:{
+          enlarge(event){
+            this.myFontSize+=Number(event)
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

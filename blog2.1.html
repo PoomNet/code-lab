@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app1">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+              <h2>My Blog Posts</h2>*
+          </div>
+          <div class="col-md-6">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Search</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search post" aria-label="search" aria-describedby="basic-addon1" v-model="searchText">
+                </div>
+          </div>
+        </div>
+
+        <div class="alert alert-primary" role="alert">
+            Total likes: xxxxxx
+        </div>
+        <div class="alert alert-danger" role="alert" v-show="tooManyPost">
+            You post too many posts. Please stop!!!
+        </div>
+        <div class="row">
+          <!-- <div class="col-md-4" v-for="blog in blogSearchResult">
+            <div class="card my-3" @click="changeBGColor">
+              <img :src="blog.image" class="card-img-top img-fluid" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{ blog.title }}
+                  <span class="badge badge-success ml-5">Likes: </span>
+                </h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.<br />
+                  <small class="text-muted">Create By: </small>
+                  <small class="text-muted ml-5">Create Date: </small>
+                </p> -->
+                <!--<button class="btn btn-primary">Go to my page</button>-->
+                <!-- <button class="btn btn-success">I like this!</button>
+                <button class="btn btn-info" @click="showComment">Show comment...</button>
+                <div class="card mt-2 text-dark">
+                  <div class="card-body">
+                    <h6 class="card-title">Comment</h6>
+                    <p class="card-text">
+                        Curious which components explicitly require jQuery, our JS, and Popper.js? Click the show components link below.<br />
+                      <small class="text-muted">Create By: </small>
+                      <small class="text-muted ml-5">Create Date: </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-md-4" v-for="blog in blogSearchResult">
+              <card-blog  v-bind:blog="blog" @add-like="blog.likes+=1"></card-blog>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="card-blog.js"></script>
+    <script>
+      
+
+      var vm = new Vue({
+        el: "#app1",
+        data: {
+          searchText:'',
+          blogs: [
+            {
+              id: 1,
+              title: "Hello World!",
+              content: "I love Vue.js. It is so cool and easy!",
+              createBy: "Bundit",
+              createDate: new Date().toLocaleString(),
+              image:
+                "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+              fb: "https://vuejs.org",
+              likes: 0,
+              comments: [
+                { text: "Yes I agree!", likes: 0, createBy: "Jack" },
+                { text: "Could not agree more!", likes: 0, createBy: "John" }
+              ]
+            },
+            {
+              id: 2,
+              title: "Hello 12345!",
+              content:
+                "An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly. Off can admiration prosperous now devonshire diminution law.",
+              createBy: "Job",
+              createDate: new Date().toLocaleString(),
+              image:
+                "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+              fb: "https://vuejs.org",
+              likes: 0,
+              comments: [
+                {
+                  text: "He oppose at thrown desire of no.",
+                  likes: 0,
+                  createBy: "Jack"
+                },
+                { text: "Noooooo!", likes: 0, createBy: "John" },
+                {
+                  text:
+                    "Announcing impression unaffected day his are unreserved indulgence.",
+                  likes: 0,
+                  createBy: "John"
+                }
+              ]
+            },
+            {
+              id: 3,
+              title: "Hello World!",
+              content: "I love Vue.js. It is so cool and easy!",
+              createBy: "Bundit",
+              createDate: new Date().toLocaleString(),
+              image:
+                "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+              fb: "https://vuejs.org",
+              likes: 0,
+              comments: [{ text: "Yes I agree!", likes: 0, createBy: "Jack" }]
+            },
+            {
+              id: 4,
+              title: "Bah bah bah...",
+              content:
+                "Folly words widow one downs few age every seven. If miss part by fact he park just shew.",
+              createBy: "Job",
+              createDate: new Date().toLocaleString(),
+              image:
+                "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+              fb: "https://vuejs.org",
+              likes: 0,
+              comments: [
+                { text: "Yes I agree!", likes: 0, createBy: "Jack" },
+                { text: "Could not agree more!", likes: 0, createBy: "John" },
+                { text: "Yes I agree!", likes: 0, createBy: "Job" },
+                { text: "Could not agree more!", likes: 0, createBy: "John" }
+              ]
+            },
+            {
+              id: 5,
+              title: "Hey hey hey!",
+              content:
+                "Was certainty remaining engrossed applauded sir how discovery. Settled opinion how enjoyed greater joy adapted too shy. Now properly surprise expenses interest nor replying she she.",
+              createBy: "Bundit",
+              createDate: new Date().toLocaleString(),
+              image:
+                "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+              fb: "https://vuejs.org",
+              likes: 10,
+              comments: [
+                { text: "Yes I agree!", likes: 0, createBy: "Jack" },
+                { text: "Could not agree more!", likes: 0, createBy: "John" }
+              ]
+            }
+          ],
+          selects: [],
+          tooManyPost: false
+        },
+        methods:{
+          changeBGColor(){
+            console.log('change bg color')
+          },
+          showComment(){
+            console.log('show comment')
+          }
+        },
+        computed:{
+          blogSearchResult(){
+            return this.blogs.filter(blog => {
+              let searchtext = this.searchText.toLowerCase()
+
+              let isintitle = blog.title.toLowerCase().includes(searchtext)
+              let isincontent = blog.content.toLowerCase().includes(searchtext)
+              return isincontent | isintitle
+            })
+          }
+        },
+        watch:{
+
+        }
+      });
+    </script>
+  </body>
+</html>
