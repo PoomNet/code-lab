@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 from django.template.defaultfilters import length
+from polls.models import Poll
 
 poll_list = [
         {
@@ -149,30 +150,32 @@ poll_list = [
 	},
     ]
 def index(request):
-    # poll_list = [
-    #     {'id': 1, 'title': '123'},
-    #     {'id': 2, 'title': '234'},
-    #     {'id': 3, 'title': '345'},
-    # ]
-    context = {
-        'page_title': 'welcome to ,y poll',
-        'poll_list': poll_list
-    }
-    return render(request,'polls/index.html',context=context)
+	# lab week 1
+    # context = {
+    #     'page_title': 'welcome to ,y poll',
+    #     'poll_list': poll_list
+    # }
+    # return render(request,'polls/index.html',context=context)
 
+	poll_list = Poll.objects.all()
+
+	for poll in poll_list:
+		question_count = Question.objects.filter(poll_id=poll.id).count()
+		poll.question_count = question_count
+	context = {
+		'page_title': 'My Polls',
+		'poll_list': poll_list
+	}
+	return render(request, template_name = 'polls/index.html', context=context)
 def detail(request,id1):
-    for i in range(len(poll_list)):
-        j = poll_list[i]["id"]
-        if(id1 == str(j)):
-            context = {
-                'poll_list': poll_list[i]
-            }
-            break
-        # else:
-        #     context = {
-        #         'poll_list': poll_list[i]
-        #      }
-    return render(request,'polls/detail.html',context=context)
-
-# def detail(request,id):
-#     return HttpResponse("detail %s"% (str(id)))
+	# lab week 1
+    # for i in range(len(poll_list)):
+    #     j = poll_list[i]["id"]
+    #     if(id1 == str(j)):
+    #         context = {
+    #             'poll_list': poll_list[i]
+    #         }
+    #         break
+    # return render(request,'polls/detail.html',context=context)
+	poll = Poll.objects.get(pk=id1)
+	return render(request, 'polls/detail.htm', {'poll': poll})

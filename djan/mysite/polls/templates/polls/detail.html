@@ -7,7 +7,8 @@
     <title>Title</title>
 </head>
 <body>
-<ol>
+    <!-- lab week 1 -->
+<!-- <ol>
     {% for poll in poll_list.questions %}
     <li>{{poll.text}}</li>
         <ul>
@@ -16,8 +17,20 @@
     {% endfor %}
         </ul>
     {% endfor %}
-</ol>
+</ol> -->
 
+    <h1>{{poll.title}}</h1>
+    <h3>Question list</h3>
+    <ul>
+        {% for question in poll.question_set.all %}
+        <li>{{question.text}}</li>
+        <ul>
+            {% for choice in question.choice_set.all %}
+                <li>{{choice.text}}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
 
 
 </body>
