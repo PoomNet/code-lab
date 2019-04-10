@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{#{% load static %}#}
+<html lang="en">
+<head>
+{#    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">#}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- lab week 1 -->
+{#<ol>#}
+{#    {% for poll in poll_list.questions %}#}
+{#    <li>{{poll.text}}</li>#}
+{#        <ul>#}
+{#        {% for poll1 in poll.choices %}#}
+{#    <li>{{poll1.text}}</li>#}
+{#    {% endfor %}#}
+{#        </ul>#}
+{#    {% endfor %}#}
+{#</ol>#}
+
+    <p>{{ poll.question_set.all }}</p>
+    <h3>Question list</h3>
+
+
+
+</body>
+</html>

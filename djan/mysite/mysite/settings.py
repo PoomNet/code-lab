@@ -82,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'webpro',
-        'USER': 'root',
-        'PASSWORD': 'dbpass',
+        'USER': '60070074',
+        'PASSWORD': 'ICIocp61',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }

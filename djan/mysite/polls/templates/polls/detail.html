@@ -8,28 +8,41 @@
 </head>
 <body>
     <!-- lab week 1 -->
-<!-- <ol>
-    {% for poll in poll_list.questions %}
-    <li>{{poll.text}}</li>
-        <ul>
-        {% for poll1 in poll.choices %}
-    <li>{{poll1.text}}</li>
-    {% endfor %}
-        </ul>
-    {% endfor %}
-</ol> -->
+{#<ol>#}
+{#    {% for poll in poll_list.questions %}#}
+{#    <li>{{poll.text}}</li>#}
+{#        <ul>#}
+{#        {% for poll1 in poll.choices %}#}
+{#    <li>{{poll1.text}}</li>#}
+{#    {% endfor %}#}
+{#        </ul>#}
+{#    {% endfor %}#}
+{#</ol>#}
 
     <h1>{{poll.title}}</h1>
+
     <h3>Question list</h3>
+    <p>{{ poll.id }}</p>
     <ul>
+<form action="{% url 'create' poll.id %}" method="POST">
+        {% csrf_token %}
         {% for question in poll.question_set.all %}
+
         <li>{{question.text}}</li>
+            {{ question.id }}
+
         <ul>
+
             {% for choice in question.choice_set.all %}
-                <li>{{choice.text}}</li>
+                <input type="radio" name="{{ question.id }}" value="{{ choice.text }}"> {{choice.text}}<br>
             {% endfor %}
+
+
         </ul>
+
         {% endfor %}
+<input type="submit" value="Post"/>
+    </form>
     </ul>
 
 
